@@ -1,0 +1,132 @@
+/*
+Assignment no.:
+Title:	Write a computer forensic application program in Java/Python/C++ for Recovering Deleted Files and Deleted Partitions.
+Batch :	T2
+
+--------------------------------------------------------------
+PROGRAM:-
+code.cpp*/
+
+#include<iostream>
+#include <cstdlib>
+#include<cstring>
+using namespace std;
+int main()
+{
+string a,b,c;
+system("lsblk");
+cout<<"Enter path of your media \n eg :- /dev/sdb1\n";
+cin>>a;
+cout<<"Please wait for a while ";
+//b="dd if=";
+//b.append(a);
+//b.append(" of=1.dd bs=2048");
+//system(b.c_str());
+
+b="fls ";
+b.append(a);
+system(b.c_str());
+cout<<"\nGIVE INDEX NUMBER OF THE REQ FILE\n";
+cin>>c;
+b="istat ";
+b.append(a);
+b.append(" ");
+b.append(c);
+b.append(" >d.txt ");
+system(b.c_str());
+b= "icat -r ";
+b.append(a);
+b.append(" ");
+b.append(c);
+b.append(" >rec.txt");
+system(b.c_str());
+cout<<"\nFile recovered Successfully";
+return 0;
+}
+/*
+***************************OUTPUT*******************************
+[root@localhost 3171]# g++ code.cpp
+[root@localhost 3171]# ./a.out
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda      8:0    0 465.8G  0 disk
+├─sda1   8:1    0 122.7G  0 part
+├─sda2   8:2    0     1K  0 part
+├─sda5   8:5    0 122.7G  0 part
+├─sda6   8:6    0   500M  0 part /boot
+├─sda7   8:7    0   3.9G  0 part [SWAP]
+└─sda8   8:8    0   216G  0 part /home
+sdc      8:32   1   7.6G  0 disk
+└─sdc1   8:33   1   7.6G  0 part /run/media/tecomp/GURNUR
+Enter path of your media
+ eg :- /dev/sdb1
+/dev/sdc1
+r/r 3:    GURNUR      (Volume Label Entry)
+d/d 5:   work
+d/d 7:   .Trash-1000
+r/r * 9: file5
+r/r * 10:           _BRT_C~1.LOG
+r/r 14:  Screenshot from 2014-08-13 17_39_34.png
+r/r * 16:           we.txt
+d/d * 19:          System Volume Information
+r/r * 20:           _
+d/d * 22:          .Trash-1000
+d/d * 23:          _SL
+d/d * 24:          _ATEST2
+d/d * 26:          XHTML & CSS
+d/d * 27:          _ammy
+r/r * 29:           1qV2067.new
+d/d 30: new
+r/r * 34:           PL_II_lab_final_shedule14-15.doc
+d/d * 35:          _PENOF~1.1(E
+d/d 36: PL_1
+d/d 37: PL_2
+d/d 39: Procedure
+d/d * 40:          _ry
+r/r * 41:           _ee.txt
+r/r * 42:           _erver.py
+r/r * 43:           _est11.cpp
+r/r 45:  test11.cpp~
+r/r * 46:           _.out
+r/r * 47:           _.out
+d/d * 50:          Autorun.inf.mal
+d/d * 52:          Autorun.inf
+r/r * 53:           _.out
+d/d * 56:          Autorun.inf.mal
+d/d * 58:          Autorun.inf
+r/r * 59:           _.out
+d/d * 62:          Autorun.inf.mal
+d/d * 64:          Autorun.inf
+r/r * 65:           _.out
+d/d * 68:          Autorun.inf.mal
+d/d * 70:          Autorun.inf
+r/r * 71:           _.out
+d/d * 74:          Autorun.inf.mal
+d/d * 76:          Autorun.inf
+r/r * 84:           UserRequirementsSpecificationTemplatev1.1-[ProjectName]-[ver]-[YYYYMMDD](1).docx
+r/r * 85:           _.out
+d/d * 88:          Autorun.inf.mal
+d/d * 90:          Autorun.inf
+r/r * 91:           _.out
+d/d * 94:          Autorun.inf.mal
+d/d * 96:          Autorun.inf
+d/d * 99:          System Volume Information
+r/r * 100:         _.out
+r/r * 101:         _.out
+d/d * 103:        Autorun.inf
+d/d * 106:        System Volume Information
+r/r 107:            doc2.tex
+r/r * 108:         _.out
+d/d * 110:        Autorun.inf
+v/v 254678755:           $MBR
+v/v 254678756:           $FAT1
+v/v 254678757:           $FAT2
+d/d 254678758:           $OrphanFiles
+Please wait for a while
+GIVE INDEX NUMBER OF THE REQ FILE
+9
+
+File recovered Successfully[root@localhost 3171]#
+
+---------------------------------------------------------------
+*/
+

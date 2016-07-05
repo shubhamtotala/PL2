@@ -1,0 +1,10 @@
+bash: /home/kbtcoe/.rvm/scripts/rvm: No such file or directory
+kbtcoe@kbtcoe-OptiPlex-3020:~$ cd Desktop
+kbtcoe@kbtcoe-OptiPlex-3020:~/Desktop$ cd workspace
+kbtcoe@kbtcoe-OptiPlex-3020:~/Desktop/workspace$ cd ns-allinone-3.21
+kbtcoe@kbtcoe-OptiPlex-3020:~/Desktop/workspace/ns-allinone-3.21$ ls
+bake      constants.py   netanim-3.105  pybindgen-0.17.0.876  util.py
+build.py  constants.pyc  ns-3.21        README                util.pyc
+kbtcoe@kbtcoe-OptiPlex-3020:~/Desktop/workspace/ns-allinone-3.21$ cd ns-3.21
+kbtcoe@kbtcoe-OptiPlex-3020:~/Desktop/workspace/ns-allinone-3.21/ns-3.21$ ./waf --run scratch/b
+
